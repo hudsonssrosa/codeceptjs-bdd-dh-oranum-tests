@@ -4,8 +4,10 @@
 # npx codeceptjs run --features --steps --plugins allure
 
 # Run tests passing a specific tag
-# npx codeceptjs run --features --steps --grep '@psychic-picture'
-npx codeceptjs run --features --steps --grep '@psychics-view'
+# npx codeceptjs run --features --steps --grep '@psychics-view'
+# npx codeceptjs run --features --steps --grep '@search-for-psychics'
+# npx codeceptjs run --features --steps --grep '@specific-search'
+npx codeceptjs run --features --steps --grep '@psychic-livestream'
 # npx codeceptjs run --features --steps --grep '@acceptance'
 
 # Run in parallel (choose the number of workers)
@@ -20,4 +22,3 @@ npx codeceptjs run --features --steps --grep '@psychics-view'
 
 # Visual tests
 # npm install codeceptjs-resemblehelper
-# allure serve output

@@ -1,6 +1,6 @@
 @search-for-psychics @acceptance
 Feature: Psychics Searching Results
-	In order to find psychics
+	In order to find psychics by a partial name
 	As a user
 	I want to be able to find only results that matches the search
 
@@ -8,12 +8,12 @@ Feature: Psychics Searching Results
 	Scenario Outline: Searching results match
 		Given that Oranum website is open
 		When I type "<name>" on search
-		Then only matching "<results>" are displayed
+		Then only names matching "<partialResult>" are displayed
 
 		Examples:
-			| name | results |
-			| Matt | matt    |
-			| Myst | myst    |
-			| Ann  | ann     |
-			| psy  | psy     |
+			| name | partialResult |
+			| Matt | matt          |
+			| Myst | myst          |
+			| Ann  | ann           |
+			| psy  | psy           |
 

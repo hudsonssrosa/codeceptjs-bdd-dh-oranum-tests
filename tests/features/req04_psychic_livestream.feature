@@ -1,4 +1,4 @@
-@psychic-livestrea @acceptance
+@psychic-livestream
 Feature: Open a Psychic's Livestream
 	In order to meet a known psychic
 	As a user

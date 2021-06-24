@@ -1,4 +1,4 @@
-@specific-search  @acceptance
+@specific-search @acceptance
 Feature: Searching for a Specific Psychic
 	In order to find a known psychic
 	As a user
@@ -8,8 +8,8 @@ Feature: Searching for a Specific Psychic
 	Scenario Outline: Specific profile search
 		Given that Oranum website is open
 		When I type "<name>" on search
-		Then only the "<profile>" searched is displayed
-		And 
+		Then only one result is displayed for "<profile>"
+		And the "<profile>" found can be accessed
 
 		Examples:
 			| name         | profile      |

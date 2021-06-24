@@ -1,7 +1,7 @@
 const { I } = inject();
 const TestHelper = require('../helpers/test_helper');
 const homePage = require('../pages/home_page');
-const viewAllPage = require('../pages/view_all_page');
+const resultsPage = require('../pages/results_page');
 
 
 Given('that Oranum website is open', () => {
@@ -17,9 +17,9 @@ When('I access the View all live psychics', () => {
 });
 
 When('I choose a "{string}"', (topic) => {
-    viewAllPage.pressSpecificTopicAtOverview(topic);
+    resultsPage.pressSpecificTopicAtOverview(topic);
 });
 
 Then('all the psychics are displayed', () => {
-    viewAllPage.validateVisiblePsychics();
+    resultsPage.validateVisiblePsychics();
 });

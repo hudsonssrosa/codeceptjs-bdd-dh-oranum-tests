@@ -27,14 +27,17 @@ exports.config = {
   include: {
     I: './steps_file.js',
     homePage: './tests/pages/home_page.js',
+    resultsPage: './tests/pages/results_page.js',
+    profilePage: './tests/pages/profile_page.js'
   },
 
   gherkin: {
     features: './tests/features/*.feature',
     steps: ['./tests/step_definitions/home_steps.js',
-            './tests/step_definitions/profile_details_steps.js',
-            './tests/step_definitions/search_results_steps.js'
-           ]
+      './tests/step_definitions/profile_details_steps.js',
+      './tests/step_definitions/search_and_results_steps.js',
+      './tests/step_definitions/psychics_view_steps.js'
+    ]
   },
 
   mocha: {
@@ -43,7 +46,7 @@ exports.config = {
       reportDir: 'output'
     }
   },
-  
+
   plugins: {
     allure: {
       enabled: true,

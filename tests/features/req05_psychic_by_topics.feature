@@ -1,4 +1,4 @@
-@psychic-by-topics @acceptance
+@psychic-by-topics
 Feature: Select a Topic
 	In order to find a psychic by topics
 	As a user
