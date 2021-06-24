@@ -1,19 +1,20 @@
 const { I } = inject();
 const homePage = require('../pages/home_page');
+const viewAllPage = require('../pages/view_all_page');
 const assert = require('assert');
 
 
-Given('that all the psychics are viewed', () => {
+Given('that all the live psychics are viewed', () => {
   homePage.scrollIntoViewAllLivePsychics();
   homePage.pressViewAllLivePsychics();
 });
 
 When('I verify all the psychic profile nicknames', () => {
-  homePage.grabAllPsychicsNamesDisplayed()
+  viewAllPage.grabAllPsychicsNamesDisplayed()
 });
 
 Then('each profile is displayed only once', async () => {
-  var psychicNames = await homePage.grabAllPsychicsNamesDisplayed();
+  var psychicNames = await viewAllPage.grabAllPsychicsNamesDisplayed();
   var uniqueNames = psychicNames.filter((thatValue, iterIndex) => psychicNames.indexOf(thatValue) === iterIndex)
 
   noDuplicatesExpected = false;
@@ -22,8 +23,8 @@ Then('each profile is displayed only once', async () => {
 });
 
 Then('all psychic pictures are displayed', async () => {
-  var totalPsychics = await homePage.grabAllPsychicsNamesDisplayed();
-  homePage.validatePicturesFromPsychics(totalPsychics.length)
+  var totalPsychics = await viewAllPage.grabAllPsychicsNamesDisplayed();
+  viewAllPage.validatePicturesFromPsychics(totalPsychics.length)
 });
 
 // Then('all psychics has its languages spoken displayed', () => {
@@ -44,9 +45,9 @@ Then('psychics are showed with different status:', (table) => {
     const cells = table.rows[id].cells;
     const commonStatus = cells[0].value;
     const sporadicStatus = cells[1].value;
-    
-    homePage.validateBadgeCommonStatus(commonStatus);
-    homePage.validateBadgeSporadicStatus(sporadicStatus);
+
+    viewAllPage.validateBadgeCommonStatus(commonStatus);
+    viewAllPage.validateBadgeSporadicStatus(sporadicStatus);
   }
 });
 

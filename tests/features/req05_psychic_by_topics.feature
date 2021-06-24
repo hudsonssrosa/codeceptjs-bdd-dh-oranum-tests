@@ -7,8 +7,7 @@ Feature: Select a Topic
 	@select-a-topic
 	Scenario Outline: Select a topic with its matching psychics
 		Given that Oranum website is open
-		# When I access the "<topic>"
-		When I press the "<topic>"
+		When I choose a "<topic>"
 		Then the "<profile>" is matching the current topic
 
 		Examples:

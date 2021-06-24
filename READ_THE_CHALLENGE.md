@@ -10,7 +10,9 @@ Oranum is the world’s largest spiritual community, and the only live webcam pl
 "Show More" button is displayed when scrolling down the home page.
 
 Clicking on the button should display new psychics. No duplicate psychic should be displayed and all of them should have a profile picture, languages spoken, nickname, rating and status (private/live/offline)
+### Outdated Details from Req-1
 
+There are no `languages` spoken or `rating` presented in the in the proposed flow, after clicking on "See More", that is "View All Live Psychics", actually. So it was considered this button in place.
 ## REQ-2
 
 Searching for partial text should display only matching psychics. Example:

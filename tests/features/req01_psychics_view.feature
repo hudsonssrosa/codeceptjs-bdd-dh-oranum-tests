@@ -15,31 +15,31 @@ Feature: Psychics View
 
 	@no-duplicate-psychics
 	Scenario: No duplicate psychics are displayed
-		Given that all the psychics are viewed
+		Given that all the live psychics are viewed
 		When I verify all the psychic profile nicknames
 		Then each profile is displayed only once
 
 	@psychic-pictures
 	Scenario: Psychic pictures displayed
-		Given that all the psychics are viewed
+		Given that all the live psychics are viewed
 		When I verify all the psychic profile nicknames
 		Then all psychic pictures are displayed
 
 	# @psychic-language-spoken
 	# Scenario: Psychic languages spoken displayed
-	# 	Given that all the psychics are viewed
+	# 	Given that all the live psychics are viewed
 	# 	When I verify all the psychic profile nicknames
 	# 	Then all psychics has its languages spoken displayed
 
 	# @psychic-rating
 	# Scenario: Psychic rating displayed
-	# 	Given that all the psychics are viewed
+	# 	Given that all the live psychics are viewed
 	# 	When I verify all the psychic profile nicknames
 	# 	Then all psychics has its rating displayed
 
 	@psychic-status
 	Scenario: Psychic status displayed
-		Given that all the psychics are viewed
+		Given that all the live psychics are viewed
 		When I verify all the psychic profile nicknames
 		Then psychics are showed with different status:
 			| commonStatus | sporadicStatus |
