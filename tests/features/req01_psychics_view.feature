@@ -25,20 +25,23 @@ Feature: Psychics View
 		When I verify all the psychic profile nicknames
 		Then all psychic pictures are displayed
 
-	@psychic-language-spoken
-	Scenario: Psychic languages spoken displayed
-		Given that all the psychics are viewed
-		When I verify all the psychic profile nicknames
-		Then all psychics has its languages spoken displayed
+	# @psychic-language-spoken
+	# Scenario: Psychic languages spoken displayed
+	# 	Given that all the psychics are viewed
+	# 	When I verify all the psychic profile nicknames
+	# 	Then all psychics has its languages spoken displayed
 
-	@psychic-rating
-	Scenario: Psychic rating displayed
-		Given that all the psychics are viewed
-		When I verify all the psychic profile nicknames
-		Then all psychics has its rating displayed
+	# @psychic-rating
+	# Scenario: Psychic rating displayed
+	# 	Given that all the psychics are viewed
+	# 	When I verify all the psychic profile nicknames
+	# 	Then all psychics has its rating displayed
 
-	@psychic-rating
+	@psychic-status
 	Scenario: Psychic status displayed
 		Given that all the psychics are viewed
 		When I verify all the psychic profile nicknames
-		Then all psychics has its status displayed
+		Then psychics are showed with different status:
+			| commonStatus | sporadicStatus |
+			| Live         | Busy           |
+			| Offline      | Private        |
