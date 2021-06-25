@@ -10,8 +10,9 @@ class ResultsPage {
   resultlocs = {
     lblAllPsychicNames: 'span[data-testid="influencer-name"]',
     imgAllPsychics: 'div[data-testid="card-cover"] picture img[src*=".jpg"]',
-    lblBadgeTagOffline: 'div[data-testid="card-badge"] > div >  *:not(div[data-testid="badge-tag"])',
-    lblBadgeTagLiveOrBusy: 'section div[data-testid="card-cover"] div[data-testid="badge-tag"]'
+    lblBadgeTagOffline: 'div[data-testid="card-badge"] > div *:not(div[data-testid="live-status-box"])',
+    lblBadgeTagLive: 'section div[data-testid="card-cover"] div[data-testid="live-status-box"]',
+    lblBadgeTagBusy: 'section div[data-testid="card-cover"] div[data-testid="busy-status-box"]'
   }
 
   searchlocs = {
@@ -66,18 +67,38 @@ class ResultsPage {
     await I.seeNumberOfVisibleElements(this.resultlocs.imgAllPsychics, totalPsychics);
   }
 
-  async validateBadgeCommonStatus(commonStatus) {
-    const liveTag = "Live";
-    await I.see(liveTag.toUpperCase(), this.resultlocs.lblBadgeTagLiveOrBusy);
-    await I.seeElement(this.resultlocs.lblBadgeTagOffline);
+  async validateLiveStatus(status) {
+    if (status == "Live"){
+      await I.see(status.toUpperCase(), this.resultlocs.lblBadgeTagLive);
+    }
+  }
+  
+  async validateOfflineStatus(status) {
+    if (status == "Offline"){
+      await I.seeElement(this.resultlocs.lblBadgeTagOffline);
+    }
+  }
+  
+  async grabAllBusyStatus() {
+    if (I.grabNumberOfVisibleElements(this.resultlocs.lblBadgeTagBusy) > 0) {
+      I.waitForElement(this.resultlocs.lblBadgeTagBusy, 5);
+      const allBusyStatuses = await I.grabTextFromAll(this.resultlocs.lblBadgeTagBusy);
+      return allBusyStatuses.length;
+    }
   }
 
-  async validateBadgeSporadicStatus(sporadicStatus) {
-    const busyTag = "Busy";
-    const privateTag = "Private";
-    await I.dontSee(privateTag.toUpperCase(), this.resultlocs.lblBadgeTagLiveOrBusy);
-    await I.dontSee(busyTag, this.resultlocs.lblBadgeTagLiveOrBusy);
+  async validateBadgeBusyStatus(status) {
+    if (status == "Busy"){
+      const badgesWithBusy = await this.grabAllBusyStatus();
+      var busy = "Busy".toUpperCase();
+      if (badgesWithBusy > 0) {
+        await I.see(busy);
+      } else {
+        await I.dontSee(busy);
+      }
+    }
   }
+  
 
 }
 module.exports = new ResultsPage();

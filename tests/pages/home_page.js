@@ -3,18 +3,26 @@ const { I } = inject();
 class HomePage {
 
   locs = {
+    btnAgreeCookies: 'button[data-testid="accept-cookies-button"]',
     btnViewAllPsychics: 'a[data-testid="cta-button-to-live-search"]',
-    btnHeaderSearch: 'div[data-testid="button-header-search"] a > div:first-of-type'
+    btnHeaderSearch: 'div[data-testid="button-header-search"] a > div:first-of-type',
+    cardLiveProfile: 'div[data-testid="live-status-box"]'
   }
 
   async openHome(url, expectedTitle) {
     I.amOnPage(url);
     I.grabDataFromPerformanceTiming();
+    I.click(this.locs.btnAgreeCookies);
     I.see(expectedTitle);
   }
 
   pressHeaderSearchButton() {
     I.click(this.locs.btnHeaderSearch);
+  }
+
+  async pressCardOfALivePsychicAvailable() {
+    I.waitForElement(this.locs.cardLiveProfile, 10);
+    I.forceClick(this.locs.cardLiveProfile);
   }
 
   scrollIntoViewAllLivePsychics() {

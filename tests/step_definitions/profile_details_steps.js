@@ -1,39 +1,41 @@
 const { I } = inject();
 const homePage = require('../pages/home_page');
+const profile_page = require('../pages/profile_page');
 
-Given('that a live profile is open', () => {
-  // From "features/req04_psychic_livestream.feature" {"line":8,"column":3}
-  throw new Error('Not implemented yet');
+Given('that a live profile is open', async () => {
+  homePage.pressCardOfALivePsychicAvailable();
+  profile_page.verifyLiveChatOpen();
 });
 
-When('I press to get credits', () => {
-  // From "features/req04_psychic_livestream.feature" {"line":12,"column":3}
-  throw new Error('Not implemented yet');
+When('I press to get free credits', async () => {
+  await profile_page.pressGetCredits();
+});
+
+When('I press add to favorites', async () => {
+  await profile_page.pressAddToFavorites();
+});
+
+When('I press to get a surprise {word}', async (model) => {
+  await profile_page.pressOranumSuprise(model);
+});
+
+// When('I press to vote', () => {
+//   profile_page.press
+// });
+
+// When('I press to turn the camera on', () => {
+//   profile_page.press
+// });
+
+// When('I press to start a private show', () => {
+//   profile_page.press
+// });
+
+When('I press to buy credits', async () => {
+  await profile_page.pressQuickBuy();
 });
 
 Then('a sign up page is showed', () => {
-  // From "features/req04_psychic_livestream.feature" {"line":33,"column":3}
-  throw new Error('Not implemented yet');
+  profile_page.validateSignUpForFreeDisplayed();
 });
-
-When('I press to add to favorites', () => {
-  // From "features/req04_psychic_livestream.feature" {"line":17,"column":3}
-  throw new Error('Not implemented yet');
-});
-
-When('I press to have a surprise model', () => {
-  // From "features/req04_psychic_livestream.feature" {"line":22,"column":3}
-  throw new Error('Not implemented yet');
-});
-
-When('I press to vote', () => {
-  // From "features/req04_psychic_livestream.feature" {"line":27,"column":3}
-  throw new Error('Not implemented yet');
-});
-
-When('I press to turn the camera on', () => {
-  // From "features/req04_psychic_livestream.feature" {"line":32,"column":3}
-  throw new Error('Not implemented yet');
-});
-
 

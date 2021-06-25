@@ -5,7 +5,7 @@
 exports.config = {
   tests: './tests/*test.js',
   output: './output',
-  timeout: 30000,
+  timeout: 10000,
   name: 'codecept-bdd-dh-oranum-tests',
   hooks: [],
   bootstrap: null,
@@ -14,7 +14,7 @@ exports.config = {
     Playwright: {
       url: 'http://localhost',
       show: true,
-      browser: 'chromium'
+      browser: 'firefox'
     },
     SetupBlocks: {
       require: './tests/helpers/setupblocks_helper.js'
@@ -82,15 +82,15 @@ exports.config = {
     safari: {
       "browsers": ["safari"]
     },
-    MicrosoftEdge: {
-      "browsers": ["MicrosoftEdge"]
+    electron: {
+      "browsers": ["electron"]
     },
     parallel: {
-      // Splits tests into chunks
-      // i.e: 2 chunks x 6 browsers = 12 threads
+      //// Splits tests into chunks
+      //// i.e: 2 chunks x 6 browsers = 12 threads
       "chunks": 1,
-      // Run all tests in each browser:
-      "browsers": ["chrome", "firefox", "safari", "MicrosoftEdge"]
+      //// Run all tests in each browser:
+      "browsers": ["chrome", "firefox", "safari", "electron"]
     }
   },
 }

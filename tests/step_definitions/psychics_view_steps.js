@@ -34,11 +34,11 @@ Then('psychics are showed with different status:', (table) => {
       continue;
     };
     const cells = table.rows[id].cells;
-    const commonStatus = cells[0].value;
-    const sporadicStatus = cells[1].value;
-
-    resultsPage.validateBadgeCommonStatus(commonStatus);
-    resultsPage.validateBadgeSporadicStatus(sporadicStatus);
+    const status = cells[0].value;
+    
+    resultsPage.validateLiveStatus(status);
+    resultsPage.validateOfflineStatus(status);
+    resultsPage.validateBadgeBusyStatus(status);
   }
 });
 

@@ -25,15 +25,15 @@ Feature: Psychics View
 		When I verify all the psychic profile nicknames
 		Then all psychic pictures are displayed
 
-
 	@psychic-status
 	Scenario: Psychic status displayed
 		Given that all the live psychics are viewed
 		When I verify all the psychic profile nicknames
 		Then psychics are showed with different status:
-			| commonStatus | sporadicStatus |
-			| Live         | Private        |
-			| Offline      | Busy           |
+			| status  |
+			| Live    |
+			| Offline |
+			| Busy    |
 
 
 # REQUIREMENT IS OUTDATED (Steps not implemented) - Please the READ_THE_CHALLENGE.md
