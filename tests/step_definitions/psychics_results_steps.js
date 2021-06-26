@@ -27,7 +27,6 @@ Then('all psychic pictures are displayed', async () => {
   resultsPage.validatePicturesFromPsychics(totalPsychics.length)
 });
 
-
 Then('psychics are showed with different status:', (table) => {
   for (let id in table.rows) {
     if (id < 1) {
@@ -42,15 +41,29 @@ Then('psychics are showed with different status:', (table) => {
   }
 });
 
-// REQUIREMENT IS OUTDATED - Please the READ_THE_CHALLENGE.md
+Then(/^the "(.*)" match the current topic$/, async (profileMatch) => {
+  var psychicsResult = await resultsPage.grabAllPsychicsNamesDisplayed();
+  var partialText = new RegExp(profileMatch, 'i');
+  var matchersOnly = [];
+
+  for (let i = 0; i < psychicsResult.length; i++) {
+    var found = psychicsResult[i].trim()
+    if (psychicsResult[i].match(partialText)){
+      matchersOnly.push(found);
+      resultsPage.validateAnExpectedPsychic(found);
+    }
+  }
+  const areThereNoMatch = matchersOnly.length == 0;
+  assert.strictEqual(areThereNoMatch, false, "No profiles matching the partial name: " + profileMatch);
+});
+
+// REQ-01 IS OUTDATED - Please read ABOUT_THE_CHALLENGE.md
 // Then('all psychics has its languages spoken displayed', () => {
-//   // From "features/req01_psychics_view.feature" {"line":33,"column":3}
-//   throw new Error('Not implemented yet');
+//   There is no Languages Spoken image or label in the latest Oranum application for non registered users
 // });
 
 // Then('all psychics has its rating displayed', () => {
-//   // From "features/req01_psychics_view.feature" {"line":39,"column":3}
-//   throw new Error('Not implemented yet');
+//   There is no Rating option or label in the latest Oranum application for non registered users
 // });
 
 

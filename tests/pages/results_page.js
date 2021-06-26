@@ -1,5 +1,5 @@
 const { I } = inject();
-
+const timeout = { _5s: 5, _7s: 7, _10s: 10};
 
 class ResultsPage {
 
@@ -21,7 +21,7 @@ class ResultsPage {
   }
 
   pressSpecificTopicAtOverview(topicName) {
-    I.click(topicName, this.locs.btnTopicsAtViewAll);
+    I.forceClick(`a[data-testid="${topicName}"] div[data-testid="card-cover"]`);
   }
 
   typeSearch(profileName) {
@@ -29,31 +29,36 @@ class ResultsPage {
   }
 
   async pressSearchResultDropdown(profileName) {
-    await I.waitForElement(this.searchlocs.lblResultListDropdown, 5);
+    await I.waitForElement(this.searchlocs.lblResultListDropdown, timeout._5s);
     I.click(profileName, this.searchlocs.lblResultListDropdown);
   }
 
   async validateDropdownWithSearchResults(profileName) {
-    await I.waitForElement(this.searchlocs.lblResultListDropdown, 5);
+    await I.waitForElement(this.searchlocs.lblResultListDropdown, timeout._5s);
     I.see(profileName, this.searchlocs.lblResultListDropdown);
   }
 
   async grabAllPsychicsResultsFromDropdownFilter() {
-    I.waitForElement(this.searchlocs.lblResultListDropdown, 5);
+    I.waitForElement(this.searchlocs.lblResultListDropdown, timeout._5s);
     let psychicsFound = await I.grabTextFromAll(this.searchlocs.lblResultListDropdown);
     return psychicsFound;
   }
 
   async grabAllPsychicsNamesDisplayed() {
-    I.waitForElement(this.resultlocs.lblAllPsychicNames, 5);
+    I.waitForElement(this.resultlocs.lblAllPsychicNames, timeout._10s);
     let allPsychics = await I.grabTextFromAll(this.resultlocs.lblAllPsychicNames);
     return allPsychics;
   }
 
   async grabTotalNumberOfPsychicsDisplayed() {
-    I.waitForElement(this.resultlocs.lblAllPsychicNames, 5);
+    I.waitForElement(this.resultlocs.lblAllPsychicNames, timeout._10s);
     let allPsychics = await I.grabNumberOfVisibleElements(this.resultlocs.lblAllPsychicNames);
     return allPsychics;
+  }
+
+  async validateAnExpectedPsychic(profileName) {
+    await I.waitForElement(this.resultlocs.lblAllPsychicNames, timeout._10s);
+    I.see(profileName, this.resultlocs.lblAllPsychicNames);
   }
 
   async validateVisiblePsychics() {
@@ -81,7 +86,7 @@ class ResultsPage {
   
   async grabAllBusyStatus() {
     if (I.grabNumberOfVisibleElements(this.resultlocs.lblBadgeTagBusy) > 0) {
-      I.waitForElement(this.resultlocs.lblBadgeTagBusy, 5);
+      I.waitForElement(this.resultlocs.lblBadgeTagBusy, timeout._5s);
       const allBusyStatuses = await I.grabTextFromAll(this.resultlocs.lblBadgeTagBusy);
       return allBusyStatuses.length;
     }
@@ -98,7 +103,6 @@ class ResultsPage {
       }
     }
   }
-  
 
 }
 module.exports = new ResultsPage();

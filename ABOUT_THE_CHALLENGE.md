@@ -1,7 +1,34 @@
 # codecept-bdd-dh-oranum-tests
-Project created in CodeceptJS-BDD with the objective of validating the requirements from DH's challenge on the product www.oranum.com
+Project created in CodeceptJS-BDD aiming to validating the requirements from DH's challenge on the product www.oranum.com
 
-# [ORANUM Website](www.oranum.com)
+# AUTOMATED TESTS OVERVIEW
+
+Please, read some details and reasons about non implementable requirements. Basically, the REQ-1 and REQ-4 were partially adapted to meet those requirements properly, which the latter being **outdated** against the currently Oranum released. Additionally, the missing scenarios were described in Gherkin but they are commented.
+
+# PROPOSAL
+
+Cover the below requirements with automated tests. Please use JavaScript, BDD and CodeceptJS to implement the test cases. Upload your code to a git repository and write a README.md file with details of how to execute the test cases. Please also use some reporting tool, such as allure.
+
+### REQ-1 - There are Outdated Details
+
+1) There is no information in the application about `languages spoken` or `rating` as proposed in the requirements.
+2) The tests are considering "View All Live Psychics" in place to "See More" (this last one doesn't exist).
+
+### REQ-2 - implemented 100%
+
+### REQ-3 - implemented 100%
+
+### REQ-4 - There are Outdated Details
+
+1) The option to "Vote" and "Turn Camera On" buttons are not displayed in Livestream applet.
+2) For the "Private Show" button was considered the validations around the "START SESSION" button.
+
+### REQ-5 - implemented 100%
+
+1) The topic about "Home" was considered as "Family" in place.
+
+
+# [ORANUM Website](www.oranum.com) - CHALLENGE REQUIREMENTS
 
 Oranum is the world’s largest spiritual community, and the only live webcam platform that allows users to video chat with psychics and spiritual advisors live and in the comfort of their own home. Though recognized worldwide for its psychics, anyone with a spiritual message or skill (ranging from horoscope, dream interpretation, reiki healing, tarot card reading, meditation, clairvoyance, to even spell casting) can use Oranum. Oranum’s mission is to help connect, inspire and empower the world’s spiritual community by bringing ancient knowledge to the digital age.
 
@@ -10,9 +37,6 @@ Oranum is the world’s largest spiritual community, and the only live webcam pl
 "Show More" button is displayed when scrolling down the home page.
 
 Clicking on the button should display new psychics. No duplicate psychic should be displayed and all of them should have a profile picture, languages spoken, nickname, rating and status (private/live/offline)
-### Outdated Details from Req-1
-
-1) There are no `languages spoken` or `rating` presented in the proposed requirement, after clicking on "See More", which was considered as "View All Live Psychics" in place, actually.
 
 ## REQ-2
 
@@ -31,7 +55,7 @@ Searching for full text should show a specific psychic profile. Example:
 - Search for 'MysticMilena', MysticMilena's profile should be displayed
 - Search for 'EternalFlame', EternalFlame's profile should be displayed
 
-# REQ-4
+## REQ-4
 
 Open the livestream of any psychic, make sure the psychic is live (https://www.oranum.com/en/chat/MattWarren this page, for example).
 
@@ -46,7 +70,7 @@ Validate that the following buttons will trigger a 'Sign up' overlay to be displ
 - Start Private Show button (on the bottom-center)
 - Buy credits button
 
-# REQ-5
+## REQ-5
 
 On the home page, selecting different topics should display only matching psychics.
 

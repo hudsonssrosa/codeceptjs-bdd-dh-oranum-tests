@@ -1,5 +1,4 @@
 // const { setHeadlessWhen } = require('@codeceptjs/configure');
-
 // setHeadlessWhen(process.env.HEADLESS);
 
 exports.config = {
@@ -14,7 +13,7 @@ exports.config = {
     Playwright: {
       url: 'http://localhost',
       show: true,
-      browser: 'firefox'
+      browser: 'firefox' // chromium does not support pages with video streaming
     },
     SetupBlocks: {
       require: './tests/helpers/setupblocks_helper.js'
@@ -33,11 +32,7 @@ exports.config = {
 
   gherkin: {
     features: './tests/features/*.feature',
-    steps: ['./tests/step_definitions/home_steps.js',
-      './tests/step_definitions/profile_details_steps.js',
-      './tests/step_definitions/search_and_results_steps.js',
-      './tests/step_definitions/psychics_view_steps.js'
-    ]
+    steps: './tests/step_definitions/*_steps.js'
   },
 
   mocha: {

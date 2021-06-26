@@ -16,7 +16,7 @@ When('I access the View all live psychics', () => {
     homePage.pressViewAllLivePsychics();
 });
 
-When('I choose a "{string}"', (topic) => {
+When('I choose a "{word}"', (topic) => {
     resultsPage.pressSpecificTopicAtOverview(topic);
 });
 

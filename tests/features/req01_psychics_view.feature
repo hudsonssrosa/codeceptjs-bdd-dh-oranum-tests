@@ -1,13 +1,13 @@
-@psychics-view @acceptance
-Feature: Psychics View
-	In order to check psychics information
+@view-all-psychics @acceptance
+Feature: View All Psychics 
+	In order to view all psychics information
 	As a user
-	I want to be able to view all profiles available
+	I want to be able to view all resulting profiles available
 
 	Background: Open Oranum website
 		Given that Oranum website is open
 
-	@view-all-psychics
+	@view-all-live
 	Scenario: View all the psychics
 		Given that I scroll until the View all live psychics
 		When I access the View all live psychics
@@ -36,7 +36,7 @@ Feature: Psychics View
 			| Busy    |
 
 
-# REQUIREMENT IS OUTDATED (Steps not implemented) - Please the READ_THE_CHALLENGE.md
+# REQ-1 IS OUTDATED (Steps not implemented) - Please read the overview ABOUT_THE_CHALLENGE.md
 # @psychic-language-spoken
 # Scenario: Psychic languages spoken displayed
 # 	Given that all the live psychics are viewed

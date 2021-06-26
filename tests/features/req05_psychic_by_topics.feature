@@ -1,21 +1,21 @@
-@psychic-by-topics
+@psychics-by-topic @acceptance
 Feature: Select a Topic
 	In order to find a psychic by topics
 	As a user
-	I want to be able to see all corresponding profiles filtered
+	I want to be able to see all corresponding profiles into the topic
 
-	@select-a-topic
+	@topic-results
 	Scenario Outline: Select a topic with its matching psychics
 		Given that Oranum website is open
 		When I choose a "<topic>"
-		Then the "<profile>" is matching the current topic
+		Then the "<profileMatch>" match the current topic
 
 		Examples:
-			| topic       | profile                                         |
-			| Love        | LoveDove477, PeaceLight, spiritlover0, Loveknot |
-			| Tarot       | Gypsy88, MysticalDiana, AllastorsReading        |
-			| Dreams      | TheTruth, MidNightStars, PsychicEmm             |
-			| Astrology   | Elevenmoons, PsychicTatjana, GaryGuru           |
-			| Clairvoyant | TheTruth, Nicovoyant, Caetano                   |
-			| Family      | LadyMaria, EternalFlame, PsychicEmm             |
-			| Numerology  | TheThirdEye, FAIRYSECRETS, DianaPsychic         |
+			| topic      | profileMatch |
+			| Love       | Lov          |
+			| Tarot      | Myst         |
+			| Dreams     | Angel        |
+			| Astrology  | Moon         |
+			| Guides     | Light        |
+			| Family     | Advisor      |
+			| Numerology | Predict      |

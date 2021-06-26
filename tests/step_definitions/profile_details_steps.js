@@ -7,7 +7,7 @@ Given('that a live profile is open', async () => {
   profile_page.verifyLiveChatOpen();
 });
 
-When('I press to get free credits', async () => {
+When('I press to get free coins', async () => {
   await profile_page.pressGetCredits();
 });
 
@@ -19,23 +19,27 @@ When('I press to get a surprise {word}', async (model) => {
   await profile_page.pressOranumSuprise(model);
 });
 
-// When('I press to vote', () => {
-//   profile_page.press
-// });
-
-// When('I press to turn the camera on', () => {
-//   profile_page.press
-// });
-
-// When('I press to start a private show', () => {
-//   profile_page.press
-// });
-
 When('I press to buy credits', async () => {
   await profile_page.pressQuickBuy();
 });
 
-Then('a sign up page is showed', () => {
-  profile_page.validateSignUpForFreeDisplayed();
+When('I press send a message', async () => {
+  await profile_page.pressSendMessage();
 });
 
+When('I press to start session', async () => {
+  await profile_page.pressSendMessage();
+});
+
+Then('a sign up page is showed', async () => {
+  await profile_page.validateSignUpForFreeDisplayed();
+});
+
+// REQ-04 IS OUTDATED - Please read ABOUT_THE_CHALLENGE.md
+// When('I press to vote', () => {
+//   There is no option to Vote in the latest Oranum application for non registered users
+// });
+
+// When('I press to turn the camera on', () => {
+//   There is no option to Turning Camera On in the latest Oranum application for non registered users
+// });

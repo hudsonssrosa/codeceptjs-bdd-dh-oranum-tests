@@ -1,10 +1,10 @@
 @specific-search @acceptance
 Feature: Searching for a Specific Psychic
-	In order to find a known psychic
+	In order to find a known psychic by its full name
 	As a user
-	I want to be able to find a specific profile
+	I want to be able to find a specific profile using the searching filter
 
-	@searching-by-full-name
+	@filtering-by-full-name
 	Scenario Outline: Specific profile search
 		Given that Oranum website is open
 		When I type "<name>" on search

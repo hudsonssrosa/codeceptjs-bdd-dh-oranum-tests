@@ -1,24 +1,27 @@
 #!/bin/bash
+## Uncomment the line that you wish to run with throughout script
 
-# Run tests with Allure Report
-# npx codeceptjs run --features --steps --plugins allure
+# Run all tests
+npx codeceptjs run --features --steps --grep '@acceptance'
 
-# Run tests passing a specific tag
-# npx codeceptjs run --features --steps --grep '@psychics-view'
-# npx codeceptjs run --features --steps --grep '@search-for-psychics'
+# Run a specific feature. Example:
+# npx codeceptjs run --features --steps --grep '@view-all-psychics'
+# npx codeceptjs run --features --steps --grep '@search-filtering'
 # npx codeceptjs run --features --steps --grep '@specific-search'
-npx codeceptjs run --features --steps --grep '@psychic-livestream'
-# npx codeceptjs run --features --steps --grep '@acceptance'
+# npx codeceptjs run --features --steps --grep '@psychic-livestream'
 
-# Run in parallel (choose the number of workers)
+# Run a specific scenario. Change the tag to another existing in the .feature files. Example:
+# npx codeceptjs run --features --steps --grep '@psychics-by-topic'
+
+# Run the tests considering DEBUG logs. Example:
+# DEBUG=pw:api npx codeceptjs run --features --steps --grep '@view-all-psychics'
+
+# Run in parallel with workers (choose the number of workers). Example:
 # npx codeceptjs run-workers --features 2
 
-# Run tests with Codecept UI
+# Run tests with Codecept UI. Example:
 # npx codecept-ui --app --features
 
-# Run in multiple browsers (default: chrome, safari, firefox, MicrosoftEdge)
-# npx codeceptjs run-multiple --features chrome firefox safari --plugins allure
-# npx codeceptjs run-multiple parallel --features chrome firefox features --plugins allure
-
-# Visual tests
-# npm install codeceptjs-resemblehelper
+# Run in multiple browsers (default: chrome, safari, firefox, ...). Example:
+# npx codeceptjs run-multiple --features chrome firefox safari
+# npx codeceptjs run-multiple parallel --features firefox chrome --grep '@acceptance'
