@@ -5,7 +5,7 @@ exports.config = {
   tests: './tests/*test.js',
   output: './output',
   timeout: 10000,
-  name: 'codecept-bdd-dh-oranum-tests',
+  name: 'codeceptjs-bdd-dh-oranum-tests',
   hooks: [],
   bootstrap: null,
 
