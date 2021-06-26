@@ -12,8 +12,9 @@ exports.config = {
   helpers: {
     Playwright: {
       url: 'http://localhost',
-      show: true,
-      browser: 'webkit' // chromium is not stable interacting with pages containing video streaming
+      show: false,
+      browser: 'webkit', // chromium is not stable interacting with pages containing video streaming
+      waitForNavigation: "networkidle0"
     },
     SetupBlocks: {
       require: './tests/helpers/setupblocks_helper.js'

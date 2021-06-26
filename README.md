@@ -39,8 +39,9 @@ Then, decide a way that you are going to run the tests. The default browser is *
     helpers: {
         Playwright: {
             url: 'http://localhost',
-            show: true,
-            browser: 'firefox'
+            show: false, // Change it to "true" if you don't want the Headless mode
+            browser: 'firefox',
+            waitForNavigation: "networkidle0"
         }
     }
 ```
