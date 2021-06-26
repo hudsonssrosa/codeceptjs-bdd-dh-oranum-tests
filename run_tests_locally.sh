@@ -14,13 +14,14 @@ else
         tag=`echo '@acceptance'`
     fi
     echo "Running the Feature / Scenario with '${tag}'. Command:"
-    # RUN TESTS SPECIFIED BY TAGS
     
     if [[ ${2} && ${2} == "crossbr" ]] ; then
+        # RUN TESTS BY TAGS: - Multiple browsers
         echo "MULTIPLE BROWSERS (WEBKIT, CHROMIUM, FIREFOX)"
         echo "npx codeceptjs run-multiple parallel --features --grep '${tag}'"
         npx codeceptjs run-multiple parallel --features --grep ${tag}
     else
+        # RUN TESTS BY TAGS: - Single browser
         echo "npx codeceptjs run --features --steps --grep '${tag}'"
         npx codeceptjs run --features --steps --grep ${tag}
     fi

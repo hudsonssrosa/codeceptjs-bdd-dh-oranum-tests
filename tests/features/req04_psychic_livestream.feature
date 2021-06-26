@@ -31,23 +31,13 @@ Feature: Open a Psychic's Livestream
 			| OranumSurprisesCards        |
 			| OranumSurprisesMoon         |
 			| OranumSurprisesGlobe        |
-			# | OranumSurprisesDiamond      |
-			# | OranumSurprisesDreamcatcher |
-			# | OranumSurprisesFox          |
-			# | OranumSurprisesHeart        |
-			# | OranumSurprisesSun          |
-			# | OranumSurprisesPhoenix      |
-			# | OranumSurprisesYinYang      |
-			# | OranumSurprisesFlower       |
-			# | OranumSurprisesEye          |
-			# | OranumSurprisesHand         |
-			# | OranumSurprisesTree         |
-			# | OranumSurprisesHuman        |
-			# | OranumSurprisesPattern      |
-			# | OranumSurprisesAngel        |
-			# | OranumSurprisesElephant     |
-			# | OranumSurprisesSymbol       |
-			# | OranumSurprisesBuda         |
+			| OranumSurprisesDiamond      |
+			| OranumSurprisesDreamcatcher |
+			| OranumSurprisesFox          |
+			| OranumSurprisesHeart        |
+			| OranumSurprisesSun          |
+			| OranumSurprisesPhoenix      |
+			| OranumSurprisesYinYang      |
 
 	@signup-to-buy-credits
 	Scenario: Sign up first to Buy credits
