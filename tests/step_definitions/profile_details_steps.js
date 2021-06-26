@@ -35,11 +35,3 @@ Then('a sign up page is showed', async () => {
   await profile_page.validateSignUpForFreeDisplayed();
 });
 
-// REQ-04 IS OUTDATED - Please read ABOUT_THE_CHALLENGE.md
-// When('I press to vote', () => {
-//   There is no option to Vote in the latest Oranum application for non registered users
-// });
-
-// When('I press to turn the camera on', () => {
-//   There is no option to Turning Camera On in the latest Oranum application for non registered users
-// });

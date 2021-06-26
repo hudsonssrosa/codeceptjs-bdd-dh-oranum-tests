@@ -13,7 +13,7 @@ exports.config = {
     Playwright: {
       url: 'http://localhost',
       show: true,
-      browser: 'firefox' // chromium does not support pages with video streaming
+      browser: 'webkit' // chromium is not stable interacting with pages containing video streaming
     },
     SetupBlocks: {
       require: './tests/helpers/setupblocks_helper.js'
@@ -68,24 +68,25 @@ exports.config = {
   },
 
   multiple: {
-    chrome: {
-      "browsers": ["chrome"]
+
+    chromium: {
+      "browsers": ["chromium"]
     },
     firefox: {
       "browsers": ["firefox"]
     },
-    safari: {
-      "browsers": ["safari"]
-    },
     electron: {
       "browsers": ["electron"]
+    },
+    webkit: {
+      "browsers": ["webkit"]
     },
     parallel: {
       //// Splits tests into chunks
       //// i.e: 2 chunks x 6 browsers = 12 threads
       "chunks": 1,
       //// Run all tests in each browser:
-      "browsers": ["chrome", "firefox", "safari", "electron"]
+      "browsers": ["chromium", "firefox", "webkit"]
     }
   },
 }

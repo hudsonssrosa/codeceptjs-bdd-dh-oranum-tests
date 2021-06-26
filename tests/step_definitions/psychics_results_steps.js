@@ -57,13 +57,5 @@ Then(/^the "(.*)" match the current topic$/, async (profileMatch) => {
   assert.strictEqual(areThereNoMatch, false, "No profiles matching the partial name: " + profileMatch);
 });
 
-// REQ-01 IS OUTDATED - Please read ABOUT_THE_CHALLENGE.md
-// Then('all psychics has its languages spoken displayed', () => {
-//   There is no Languages Spoken image or label in the latest Oranum application for non registered users
-// });
-
-// Then('all psychics has its rating displayed', () => {
-//   There is no Rating option or label in the latest Oranum application for non registered users
-// });
 
 
