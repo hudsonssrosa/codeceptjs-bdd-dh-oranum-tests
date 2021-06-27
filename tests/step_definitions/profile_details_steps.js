@@ -31,7 +31,7 @@ When('I press to start session', async () => {
   await profile_page.pressSendMessage();
 });
 
-Then('a sign up page is showed', async () => {
+Then('a sign up modal is showed', async () => {
   await profile_page.validateSignUpForFreeDisplayed();
 });
 
