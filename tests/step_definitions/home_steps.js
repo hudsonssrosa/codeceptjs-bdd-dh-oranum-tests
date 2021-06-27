@@ -8,11 +8,11 @@ Given('that Oranum website is open', () => {
     homePage.openHome(TestHelper.oranumUrl(), 'Oranum.com');
 });
 
-Given('that I scroll until the View all live psychics', () => {
+Given('that I scroll until the View All Live Psychics', () => {
     homePage.scrollIntoViewAllLivePsychics();
 });
 
-When('I access the View all live psychics', () => {
+When('I access the View All Live Psychics', () => {
     homePage.pressViewAllLivePsychics();
 });
 

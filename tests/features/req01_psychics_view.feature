@@ -9,8 +9,8 @@ Feature: View All Psychics
 
 	@view-all-live
 	Scenario: View all the psychics
-		Given that I scroll until the View all live psychics
-		When I access the View all live psychics
+		Given that I scroll until the View All Live Psychics
+		When I access the View All Live Psychics
 		Then all the psychics are displayed
 
 	@no-duplicate-psychics
