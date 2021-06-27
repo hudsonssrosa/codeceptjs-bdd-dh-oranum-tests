@@ -21,7 +21,7 @@ Project created in CodeceptJS-BDD aiming to validate the requirements from DH's 
 Please, read some considerations around those requirements.
 Basically, the REQ-1 and REQ-4 were partially adapted to meet those requirements properly, which the latter being **outdated** against the currently Oranum released. Additionally, the missing scenarios were described in Gherkin but they were commented. See the details in the sections below.
 
-### 1.1.1 - REQ-1 - There are Outdated Details 🙋
+### 1.1.1 - REQ-1 - Done, but: There are Outdated Details 👍 🙋
 
 1) There is no information in the application about `languages spoken` or `rating` as proposed in the requirements.
 2) The tests are considering "View All Live Psychics" in place to "See More" (this last one doesn't exist in any page of Oranum application).
@@ -30,7 +30,7 @@ Basically, the REQ-1 and REQ-4 were partially adapted to meet those requirements
 
 ### 1.1.3 - REQ-3 - implemented 100% 👍
 
-### 1.1.4 - REQ-4 - Done, but: There are Outdated Details 🙋
+### 1.1.4 - REQ-4 - Done, but: There are Outdated Details 👍 🙋
 
 1) The option to "Vote" and "Turn Camera On" buttons are not displayed in Livestream applet.
 2) For the "Private Show" button was considered the validations around the "START SESSION" button.
