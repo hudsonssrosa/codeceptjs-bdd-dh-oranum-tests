@@ -1,31 +1,40 @@
 #!/bin/bash
 
+echo "-----> ARG 1: ${1}"
+echo "-----> ARG 2: ${2}"
+
+# No external arguments informed
 if [ $# -eq 0 ] ; then
     echo "Running all the tests..."
     npx codeceptjs run --features --steps
 
+# One external argument with 'ccui' to run in Codecept UI
 elif [ ${1} == "ccui" ] ; then
-    # RUN TESTS IN CODECEPTJS-UI
+    echo "Opening Codecept UI..."
     npx codecept-ui --app --features
 
+# Single or multiple browsers with or withot Feature / Scenario tags
 else
-    tag=`echo @${1}`
-    if [ ${1} -eq 0 ] ; then
-        tag=`echo '@acceptance'`
-    fi
-    echo "Running the Feature / Scenario with '${tag}'. Command:"
+    with_parallel=""
+    crossbrowser="multi"
+    tag=`echo --grep @${1}`
+    tag_norm=`echo ${tag} | sed 's/@//g'`
     
-    if [[ ${2} && ${2} == "crossbr" ]] ; then
-        # RUN TESTS BY TAGS: - Multiple browsers
-        echo "MULTIPLE BROWSERS (WEBKIT, CHROMIUM, FIREFOX)"
-        echo "npx codeceptjs run-multiple parallel --features --grep '${tag}'"
-        npx codeceptjs run-multiple parallel --features --grep ${tag}
+    if [[ ${1} && ${1} == ${crossbrowser} ]] ; then 
+        with_parallel="-multiple parallel"
+        tag_norm=""
+    
+    elif [[ ${2} && ${2} == ${crossbrowser} ]] ; then
+        with_parallel="-multiple parallel"
+        echo "-----> MULTIPLE BROWSERS IN PARALLEL: Webkit, Chrome, Firefox --- '${tag_norm}'"
+        
     else
-        # RUN TESTS BY TAGS: - Single browser
-        echo "npx codeceptjs run --features --steps --grep '${tag}'"
-        npx codeceptjs run --features --steps --grep ${tag}
+        with_parallel=""
+        echo "-----> Running single browser the Feature / Scenario with '${tag_norm}'. Command:"
     fi
-
+        
+    echo "(command: npx codeceptjs run${with_parallel} --features --steps ${tag_norm})"
+    npx codeceptjs run${with_parallel} --features --steps ${tag_norm}
 fi
 
     ## RUN TESTS USING TERMINAL IN YOUR WAY - SEE ALL OPTIONS AND EXAMPLES

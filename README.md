@@ -2,8 +2,9 @@
 
 RECOMMENDED SECTIONS TO READ AND FOLLOW:
     - 1. Clone this project from [GitHub]
-    - 2. Installing this project from the ground up
-    - 3. Run the tests implemented for Docler Challenge - Oranium.com
+    - 2. Installing this project from the ground up locally
+    - 3. Running the tests locally
+    - 4. Running dockerized tests (RECOMMENDED)
 
 ## 1. Clone this project from [GitHub](https://github.com/hudsonssrosa/codecept-bdd-dh-oranum-tests)
 
@@ -14,26 +15,31 @@ Into your local repository for Git, clone by running this command:
     git clone git@github.com:hudsonssrosa/codecept-bdd-dh-oranum-tests.git
 ```
 
-## 2. Installing this project from the ground up
+## 2. Installing this project from the ground up locally
 
 In a terminal, into the `./codecept-bdd-dh-oranum-tests/` directory, run the shell script `./cc_local_installation.sh` to get installed CodeceptJS with Playwright and Allure Report as the minimum requirements for tests on BDD approach (with Gherkin sectionalready added in the `codecept.conf.js`):
 
+- For MacOS and Linux:
+
 ```bash
-    cd ./codecept-bdd-dh-oranum-tests/
+    cd codecept-bdd-dh-oranum-tests/
     sh cc_local_installation.sh
+```
+
+- For Windows 10:
+
+```bash
+    cd codecept-bdd-dh-oranum-tests/
+    ./cc_local_installation.sh
 ```
 
 After the successful installation of all dependencies, a single scenario will be automatically started to check if everything is working as expected in your local machine.
 
-## 3. Run the tests implemented for Docler Challenge - Oranium.com
+## 3. Running the tests locally
 
-First, ensure that you are into the `./codecept-bdd-dh-oranum-tests/` directory:
+First, decide a way that you are going to run the tests. If you need to set another specific browser, you have also the options such as Cromium `chromium`, Firefox `firefox` or Webkit `webkit`. By default, the browser is **`webkit`** using Playwright. Thus, you can set those values in the `codecept.conf.js` with headless mode if you want (also as default).
 
-```bash
-    cd ./codecept-bdd-dh-oranum-tests/
-```
-
-Then, decide a way that you are going to run the tests. The default browser is **`webkit`** using Playwright. Thus, if you need to set another specific browser, you have also the options such as Cromium `chromium` and Firefox `firefox`. You can set those values in the `codecept.conf.js`.
+For now, you could ignore these changes:
 
 ```javascript
     helpers: {
@@ -46,42 +52,30 @@ Then, decide a way that you are going to run the tests. The default browser is *
     }
 ```
 
-## 4. Further information about test executions (OPTIONAL)
+Then, ensure that you are into the `./codecept-bdd-dh-oranum-tests/` directory and run **ALL THE TESTS** through the `run_tests_locally` script:
 
-### 4.1 Do you want to execute all tests?
+- For MacOS and Linux:
 
 ```bash
+    cd codecept-bdd-dh-oranum-tests/
     sh run_tests_locally.sh
 ```
 
-### 4.2 Do you want to execute using an interactive GUI with Codecept UI?
-
-Just call the script passing the argument `ccui`. The benefit is that you can choose features or scenarios to run easily:
+- For Windows 10:
 
 ```bash
-    sh run_tests_locally.sh ccui
+    cd codecept-bdd-dh-oranum-tests/
+    ./run_tests_locally.sh
 ```
 
-### 4.3 Do you want to execute all tests in multiple browsers like Chromium, Firefox and PW-Webkit?
-
-Inform the argument `crossbr`. You are able to run in at least 3 different browsers supported with Playwright: Chromium, Firefox and PW-Webkit. You may have flaky tests in this case (stability of browsers on execution is not guaranteed):
-
-```bash
-    sh run_tests_locally.sh crossbr
-```
-
-### 4.4 Do you prefer to run a feature or scenario using tags?
-
-Use one of these **tags** below to start running a feature/s or a single scenario:
+You can also run just one feature / scenario. So, copy and paste an existing **TAG** into the command as first argument, with or without `@`, as showed below:
 
 ```bash
     sh run_tests_locally.sh <PASTE_THE_TAG_HERE>
-```
 
-You can also run just one feature / scenario as a cross-browser parallel strategy:
-
-```bash
-    sh run_tests_locally.sh <PASTE_THE_TAG_HERE> crossbr
+    # example:
+    #   sh run_tests_locally.sh @no-duplicate-psychics
+    #   sh run_tests_locally.sh no-duplicate-psychics
 ```
 
 - Tags available:
@@ -121,4 +115,49 @@ You can also run just one feature / scenario as a cross-browser parallel strateg
             @psychics-by-topic
             SCENARIOS:
                 @topic-results
+```
+
+After finishing the execution, if you want to check the results, an Allure Report will be automatically generated and opened in a web browser.
+
+### 3.1. (OPTIONAL) Do you want to execute using an interactive GUI with Codecept UI?
+
+Just call the script passing the argument `ccui`. The benefit is that you can choose features or scenarios to run easily:
+
+```bash
+    sh run_tests_locally.sh ccui
+```
+
+### 3.2. (OPTIONAL) Do you want to execute tests in multiple browsers?
+
+Inform the argument `multi`. You are able to run in at least 3 different browsers supported with Playwright: Chromium, Firefox and PW-Webkit. You may have flaky tests in this case (stable browsers on execution is not guaranteed depending on the OS):
+
+```bash
+    sh run_tests_locally.sh multi
+```
+
+```bash
+    sh run_tests_locally.sh <PASTE_THE_TAG_HERE> multi
+```
+
+## 4. Running dockerized tests (RECOMMENDED)
+
+Regarding the environment or OS that you have, probably you might face flaky tests or even have other unexpected errors during the execution for this project. So, as alternative, you can install [Docker and Docker Compose](https://docs.docker.com/desktop/) to ensure an adequate environment for the tests.
+
+For the first time, to build an image and container may take a long.
+
+Having that requirement met, then follow the instructions below to build an image and run automatically the tests considering also strategies to pass `TAGS` (with or without `@`, like those shown previously under Section 3) and / or `CROSSBROWSER=multi`, if you want:
+
+- RECOMMENDED command:
+
+```bash
+    cd ./codecept-bdd-dh-oranum-tests/
+    docker-compose run --rm codeceptjs-bdd-oranum
+```
+
+- Other execution ways:
+
+```bash
+    # docker-compose run -e CROSSBROWSER=multi --rm codeceptjs-bdd-oranum
+    # docker-compose run -e TAG=psychics-by-topic --rm codeceptjs-bdd-oranum
+    # docker-compose run -e TAG=psychics-by-topic -e CROSSBROWSER=multi --rm codeceptjs-bdd-oranum
 ```
