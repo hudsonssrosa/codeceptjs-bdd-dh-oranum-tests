@@ -158,6 +158,6 @@ Having that requirement met, then follow the instructions below to build an imag
 
 ```bash
     # docker-compose run -e CROSSBROWSER=multi --rm codeceptjs-bdd-oranum
-    # docker-compose run -e TAG=psychics-by-topic --rm codeceptjs-bdd-oranum
-    # docker-compose run -e TAG=psychics-by-topic -e CROSSBROWSER=multi --rm codeceptjs-bdd-oranum
+    # docker-compose run -e TAG=<PASTE_THE_TAG_HERE> --rm codeceptjs-bdd-oranum
+    # docker-compose run -e TAG=<PASTE_THE_TAG_HERE> -e CROSSBROWSER=multi --rm codeceptjs-bdd-oranum
 ```
