@@ -20,7 +20,7 @@ class HomePage {
     I.click(this.locs.btnHeaderSearch);
   }
 
-  async pressCardOfALivePsychicAvailable() {
+  pressCardOfALivePsychicAvailable() {
     I.waitForElement(this.locs.cardLiveProfile, 10);
     I.forceClick(this.locs.cardLiveProfile);
   }

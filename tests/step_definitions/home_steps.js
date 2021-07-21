@@ -1,7 +1,5 @@
-const { I } = inject();
+const { I, homePage, resultsPage } = inject();
 const TestHelper = require('../helpers/test_helper');
-const homePage = require('../pages/home_page');
-const resultsPage = require('../pages/results_page');
 
 
 Given('that Oranum website is open', () => {

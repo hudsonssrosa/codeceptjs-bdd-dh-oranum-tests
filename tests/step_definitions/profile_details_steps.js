@@ -1,37 +1,36 @@
-const { I } = inject();
-const homePage = require('../pages/home_page');
-const profile_page = require('../pages/profile_page');
+const { I, homePage, profilePage } = inject();
 
-Given('that a live profile is open', async () => {
+
+Given('that a live profile is open', () => {
   homePage.pressCardOfALivePsychicAvailable();
-  profile_page.verifyLiveChatOpen();
+  profilePage.verifyLiveChatOpen();
 });
 
-When('I press to get free coins', async () => {
-  await profile_page.pressGetCredits();
+When('I press to get free coins', () => {
+  profilePage.pressGetCredits();
 });
 
-When('I press add to favorites', async () => {
-  await profile_page.pressAddToFavorites();
+When('I press add to favorites', () => {
+  profilePage.pressAddToFavorites();
 });
 
-When('I press to get a surprise {word}', async (model) => {
-  await profile_page.pressOranumSuprise(model);
+When('I press to get a surprise {word}', (model) => {
+  profilePage.pressOranumSuprise(model);
 });
 
-When('I press to buy credits', async () => {
-  await profile_page.pressQuickBuy();
+When('I press to buy credits', () => {
+  profilePage.pressQuickBuy();
 });
 
-When('I press send a message', async () => {
-  await profile_page.pressSendMessage();
+When('I press send a message', () => {
+  profilePage.pressSendMessage();
 });
 
-When('I press to start session', async () => {
-  await profile_page.pressSendMessage();
+When('I press to start session', () => {
+  profilePage.pressSendMessage();
 });
 
-Then('a sign up modal is showed', async () => {
-  await profile_page.validateSignUpForFreeDisplayed();
+Then('a sign up modal is showed', () => {
+  profilePage.validateSignUpForFreeDisplayed();
 });
 

@@ -1,6 +1,4 @@
-const { I } = inject();
-const homePage = require('../pages/home_page');
-const resultsPage = require('../pages/results_page');
+const { I, homePage, resultsPage } = inject();
 const assert = require('assert');
 
 

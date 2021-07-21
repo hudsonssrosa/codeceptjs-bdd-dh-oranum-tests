@@ -26,7 +26,7 @@ else
     
     elif [[ ${2} && ${2} == ${crossbrowser} ]] ; then
         with_parallel="-multiple parallel"
-        echo "-----> MULTIPLE BROWSERS IN PARALLEL: Webkit, Chrome, Firefox --- '${tag_norm}'"
+        echo "-----> MULTIPLE BROWSERS IN PARALLEL: Webkit, Chromium, Firefox --- '${tag_norm}'"
         
     else
         with_parallel=""

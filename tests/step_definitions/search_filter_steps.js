@@ -1,7 +1,4 @@
-const { I } = inject();
-const homePage = require('../pages/home_page');
-const resultsPage = require('../pages/results_page');
-const profile_page = require('../pages/profile_page');
+const { I, homePage, resultsPage, profilePage } = inject();
 const assert = require('assert');
 
 
@@ -28,5 +25,5 @@ Then('only one result is displayed for "{word}"', async (profile) => {
 
 Then('the "{word}" found can be accessed', async (profile) => {
   await resultsPage.pressSearchResultDropdown(profile);
-  await profile_page.validateAccessedProfileName(profile);
+  await profilePage.validateAccessedProfileName(profile);
 });

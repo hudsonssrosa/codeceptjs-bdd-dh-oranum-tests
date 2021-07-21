@@ -10,7 +10,7 @@ Project created in CodeceptJS-BDD aiming to validate the requirements from DH's 
 - Are the project adopting BDD approach with tests in Gherkin? 
   - YES 👍
 
-- Are there a README.md file with the instructions about how to execute the test cases?
+- Is there a README.md file with the instructions about how to execute the test cases?
   - YES 👍
 
 - Are the test results being reported using Allure Report?

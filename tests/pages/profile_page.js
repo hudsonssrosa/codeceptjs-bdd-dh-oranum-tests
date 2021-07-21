@@ -18,49 +18,49 @@ class ProfilePage {
     btnSignUpForFree: 'input[id="signup-submit"]'
   }
 
-  async validateAccessedProfileName(psychicName) {
-    await I.see(psychicName, this.locslive.lblProfileName);
+  validateAccessedProfileName(psychicName) {
+    I.see(psychicName, this.locslive.lblProfileName);
   }
 
-  async verifyLiveChatOpen() {
-    await I.waitForElement(this.locslive.cardTouchableSection, timeout._10s);
-    await I.switchTo(this.locslive.cardTouchableSection);
-    await I.seeInCurrentUrl("/en/chat/")
+  verifyLiveChatOpen() {
+    I.waitForElement(this.locslive.cardTouchableSection, timeout._10s);
+    I.switchTo(this.locslive.cardTouchableSection);
+    I.seeInCurrentUrl("/en/chat/")
   }
 
-  async pressGetCredits() {
-    await I.waitForElement(this.locslive.btnGetFreeCoins, timeout._10s);
-    await I.forceClick(this.locslive.btnGetFreeCoins);
+  pressGetCredits() {
+    I.waitForElement(this.locslive.btnGetFreeCoins, timeout._10s);
+    I.forceClick(this.locslive.btnGetFreeCoins);
   }
 
-  async pressAddToFavorites() {
-    await I.waitForElement(this.locslive.btnAddToFavorites, timeout._10s);
-    await I.retry({
+  pressAddToFavorites() {
+    I.waitForElement(this.locslive.btnAddToFavorites, timeout._10s);
+    I.retry({
       retries: 5,
       when: err => err.message === 'Favorite was not loaded'
     }).forceClick(this.locslive.btnAddToFavorites);
   }
   
-  async pressOranumSuprise(model) {
+  pressOranumSuprise(model) {
     const modelId = model.trim();
     const locSurpriseModel = `div[data-testid="reaction-surprise-applet"] button[data-testid*=${modelId}]`;
-    await I.forceClick(locSurpriseModel);
+    I.forceClick(locSurpriseModel);
   }
   
-  async pressQuickBuy() {
-    await I.forceClick(this.locslive.btnQuickBuy);
+  pressQuickBuy() {
+    I.forceClick(this.locslive.btnQuickBuy);
   }
   
-  async pressSendMessage() {
-    await I.forceClick(this.locslive.btnSendMessage);
+  pressSendMessage() {
+    I.forceClick(this.locslive.btnSendMessage);
   }
   
-  async pressStartSession() {
-    await I.forceClick(this.locslive.btnStartSession);
+  pressStartSession() {
+    I.forceClick(this.locslive.btnStartSession);
   }
 
-  async validateSignUpForFreeDisplayed() {
-    await I.waitForElement(this.locslive.btnSignUpForFree, timeout._7s);
+  validateSignUpForFreeDisplayed() {
+    I.waitForElement(this.locslive.btnSignUpForFree, timeout._7s);
     I.seeElement(this.locslive.btnSignUpForFree);
   }
 

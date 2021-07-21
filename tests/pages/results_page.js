@@ -28,13 +28,13 @@ class ResultsPage {
     I.fillField(this.searchlocs.txtFindPsychics, profileName);
   }
 
-  async pressSearchResultDropdown(profileName) {
-    await I.waitForElement(this.searchlocs.lblResultListDropdown, timeout._5s);
+  pressSearchResultDropdown(profileName) {
+    I.waitForElement(this.searchlocs.lblResultListDropdown, timeout._5s);
     I.click(profileName, this.searchlocs.lblResultListDropdown);
   }
 
-  async validateDropdownWithSearchResults(profileName) {
-    await I.waitForElement(this.searchlocs.lblResultListDropdown, timeout._5s);
+  validateDropdownWithSearchResults(profileName) {
+    I.waitForElement(this.searchlocs.lblResultListDropdown, timeout._5s);
     I.see(profileName, this.searchlocs.lblResultListDropdown);
   }
 
@@ -56,8 +56,8 @@ class ResultsPage {
     return allPsychics;
   }
 
-  async validateAnExpectedPsychic(profileName) {
-    await I.waitForElement(this.resultlocs.lblAllPsychicNames, timeout._10s);
+  validateAnExpectedPsychic(profileName) {
+    I.waitForElement(this.resultlocs.lblAllPsychicNames, timeout._10s);
     I.see(profileName, this.resultlocs.lblAllPsychicNames);
   }
 
@@ -68,19 +68,19 @@ class ResultsPage {
     }
   }
 
-  async validatePicturesFromPsychics(totalPsychics) {
-    await I.seeNumberOfVisibleElements(this.resultlocs.imgAllPsychics, totalPsychics);
+  validatePicturesFromPsychics(totalPsychics) {
+    I.seeNumberOfVisibleElements(this.resultlocs.imgAllPsychics, totalPsychics);
   }
 
-  async validateLiveStatus(status) {
+  validateLiveStatus(status) {
     if (status == "Live"){
-      await I.see(status.toUpperCase(), this.resultlocs.lblBadgeTagLive);
+      I.see(status.toUpperCase(), this.resultlocs.lblBadgeTagLive);
     }
   }
   
-  async validateOfflineStatus(status) {
+  validateOfflineStatus(status) {
     if (status == "Offline"){
-      await I.seeElement(this.resultlocs.lblBadgeTagOffline);
+      I.seeElement(this.resultlocs.lblBadgeTagOffline);
     }
   }
   
@@ -97,9 +97,9 @@ class ResultsPage {
       const badgesWithBusy = await this.grabAllBusyStatus();
       var busy = "Busy".toUpperCase();
       if (badgesWithBusy > 0) {
-        await I.see(busy);
+        I.see(busy);
       } else {
-        await I.dontSee(busy);
+        I.dontSee(busy);
       }
     }
   }
