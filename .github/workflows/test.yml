@@ -25,12 +25,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          npm install -g npm
-          npm init -y
-          npm install --save-dev puppeteer
-          npm install codeceptjs playwright --save-dev
-          npm install -g allure-commandline --save-dev
-          npm i @codeceptjs/ui --save
+          npm install
         
       - name: Setup Node.js Environment
         uses: microsoft/playwright-github-action@v1
