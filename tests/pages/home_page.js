@@ -12,7 +12,7 @@ class HomePage {
   async openHome(url, expectedTitle) {
     I.amOnPage(url);
     I.grabDataFromPerformanceTiming();
-    I.click(this.locs.btnAgreeCookies);
+    I.click("Accept All");
     I.see(expectedTitle);
   }
 
