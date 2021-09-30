@@ -2,6 +2,7 @@
 
 # Install CodeceptJs - Dev dependencies (including Allure)
 npm install -g npm
+npm install -g dotenv
 npm init -y
 npm install --save-dev puppeteer
 npm install codeceptjs playwright --save-dev

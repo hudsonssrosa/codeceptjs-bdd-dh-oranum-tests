@@ -13,6 +13,14 @@ elif [ ${1} == "ccui" ] ; then
     echo "Opening Codecept UI..."
     npx codecept-ui --app --features
 
+# Running Dockerized tests
+elif [ ${1} == "docker" ] ; then
+    docker-compose run --rm codeceptjs-bdd-oranum
+
+# Running Dockerized tests in parallel
+elif [ ${1} == "docker_multi" ] ; then
+    docker-compose run -e CROSSBROWSER=multi --rm codeceptjs-bdd-oranum
+
 # Single or multiple browsers with or withot Feature / Scenario tags
 else
     with_parallel=""
@@ -36,31 +44,3 @@ else
     echo "(command: npx codeceptjs run${with_parallel} --features --steps ${tag_norm})"
     npx codeceptjs run${with_parallel} --features --steps ${tag_norm}
 fi
-
-    ## RUN TESTS USING TERMINAL IN YOUR WAY - SEE ALL OPTIONS AND EXAMPLES
-
-    ## Run all tests
-    # npx codeceptjs run --features --steps --grep '@acceptance'
-
-    ## Run a specific feature. Example:
-    # npx codeceptjs run --features --steps --grep '@view-all-psychics'
-    # npx codeceptjs run --features --steps --grep '@search-filtering'
-    # npx codeceptjs run --features --steps --grep '@specific-search'
-    # npx codeceptjs run --features --steps --grep '@psychic-livestream'
-
-    ## Run a specific scenario. Change the tag to another existing in the .feature files. Example:
-    # npx codeceptjs run --features --steps --grep '@psychics-by-topic'
-
-    ## Run the tests considering DEBUG logs. Example:
-    # DEBUG=pw:api npx codeceptjs run --features --steps --grep '@view-all-psychics'
-
-    ## Run tests with Codecept UI. Example:
-    # npx codecept-ui --app --features
-
-    ## Run in parallel with workers (choose the number of workers). Example:
-    # npx codeceptjs run-workers --features 2
-    # npx codeceptjs run-workers --features 2 --grep '@view-all-psychics'
-
-    ## Run in multiple browsers (default: chromium, firefox, webkit). Example:
-    # npx codeceptjs run-multiple --features chromium firefox
-    # npx codeceptjs run-multiple parallel --features --grep '@acceptance'
